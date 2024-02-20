@@ -5,8 +5,10 @@ Phase 1 Development
 	2 - Object + Face Recognition
 	3 - Stability
 
-	1 - Autonomous Walking : 
+	1 - Autonomous Walking :
 		- Required: Body/structure
-			    Sensors/Motors(Husky Lens, DC motor)
+			    	Sensors/Motors(Husky Lens, DC motor)
+					Basic Movement(Walking, Stability)
+					
 			
 			    
