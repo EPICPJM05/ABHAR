@@ -1,0 +1,12 @@
+Phase 1 Development
+
+- Prototype that includes:
+	1 - Autonomous Walking
+	2 - Object + Face Recognition
+	3 - Stability
+
+	1 - Autonomous Walking : 
+		- Required: Body/structure
+			    Sensors/Motors(Husky Lens, DC motor)
+			
+			    
