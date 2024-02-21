@@ -1,5 +1,5 @@
 Phase 1 Development
-
+After a compnents order we will do:- 
 - Prototype that includes:
 	1 - Autonomous Walking
 	2 - Object + Face Recognition
