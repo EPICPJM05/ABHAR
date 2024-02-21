@@ -6,3 +6,4 @@ A solution that not only keeps your home safe but also respects your privacy, ca
 <h3>
   AI-BASED HOME AUTOMATION ROBO
 </h3>
+<img src="https://ibb.co/GkBKBd1">
