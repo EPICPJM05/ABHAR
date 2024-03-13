@@ -24,7 +24,7 @@ class Server:
                 print(f"New connection from {address}")
                 client_thread = threading.Thread(target=self.handle_client, args=(client_socket, address))
                 client_thread.start()
-                self.clients.append(client_socket)
+                self.clients.append((client_socket, address))
         except Exception as e:
             print(f"Error starting server: {e}")
 
@@ -39,22 +39,23 @@ class Server:
 
                 # Broadcast message to all clients
                 for client in self.clients:
-                    client.send(message.encode())
+                    if client[0] != client_socket:  # Exclude the sender
+                        client[0].send(message.encode())
         except Exception as e:
             print(f"Error handling client {address}: {e}")
         finally:
             # Remove client from the list when disconnected
-            self.clients.remove(client_socket)
+            self.clients.remove((client_socket, address))
             client_socket.close()
 
     def send_auto_messages(self, interval=5):
         try:
             while True:
                 time.sleep(interval)
-                auto_message = "This is an automated message from the server."
+                auto_message = input("This is an automated message from the server.")
                 print(f"Sending automated message: {auto_message}")
                 for client in self.clients:
-                    client.send(auto_message.encode())
+                    client[0].send(auto_message.encode())
         except Exception as e:
             print(f"Error sending automated messages: {e}")
 
