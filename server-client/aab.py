@@ -27,5 +27,6 @@ class Client:
             self.client_socket.close()
 
 if __name__ == "__main__":
-    client = Client('localhost', 12345)
+    server_ip = input("Enter the server's IP address: ")
+    client = Client(server_ip, 12345)
     client.connect()
