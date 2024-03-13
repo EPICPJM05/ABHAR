@@ -1,12 +1,28 @@
+
 *{
     margin: 0;
     padding: 0;
 }
 
+body{
+    background-color: rgb(255, 255, 255);
+}
+a{
+    text-decoration: none;
+    font:inherit;
+    color: inherit;
+}
 li{
+    font-family: sans-serif;
     list-style: none;
     font-size: large;
-    padding: 10px;
+    padding: 15px 20px;
+    margin: 0px ;
+}
+.nav li:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    transition: 0.5s;
 }
 
 .flex{
@@ -17,4 +33,51 @@ li{
 
 .logo{
     
+}
+
+.end-list{
+    margin-right: 40px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(29, 29, 29);
+    color: white;
+}
+
+.right button{
+    margin: 7px;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-weight: 500;
+    border: none;
+}
+
+.right button:hover{
+    background-color: rgb(158, 158, 158);
+    transition: 0.3s;
+}
+
+.w3-container p,.w3-container h2 {
+    color:black;
+    font-family:sans-serif;
+}
+
+.inp{
+    display: flex;
+    flex-direction: column;
+    
+}
+input{
+    margin: 5px;
+}
+
+form button{
+    color: white;
+    background-color: rgb(25, 25, 25);
+}
+
+.signup{
+    height: 45vh;
 }
