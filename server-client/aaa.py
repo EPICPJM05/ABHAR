@@ -1,5 +1,7 @@
 import socket
 import threading
+import time
+import sys
 
 class Server:
     def __init__(self, host, port):
@@ -45,6 +47,23 @@ class Server:
             self.clients.remove(client_socket)
             client_socket.close()
 
+    def send_auto_messages(self, interval=5):
+        try:
+            while True:
+                time.sleep(interval)
+                auto_message = "This is an automated message from the server."
+                print(f"Sending automated message: {auto_message}")
+                for client in self.clients:
+                    client.send(auto_message.encode())
+        except Exception as e:
+            print(f"Error sending automated messages: {e}")
+
 if __name__ == "__main__":
-    server = Server('localhost', 12345)
+    if len(sys.argv) > 1:
+        host = sys.argv[1]
+    else:
+        host = '0.0.0.0'  # Listen on all available interfaces
+
+    server = Server(host, 12345)
+    threading.Thread(target=server.send_auto_messages).start()  # Start auto message sender thread
     server.start()
