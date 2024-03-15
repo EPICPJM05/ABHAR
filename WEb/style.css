@@ -8,7 +8,7 @@ body{
     background-color: rgb(255, 255, 255);
 }
 a{
-    text-decoration: none;
+    text-decoration: none !important;
     font:inherit;
     color: inherit;
 }
@@ -31,9 +31,6 @@ li{
     align-items: center;
 }
 
-.logo{
-    
-}
 
 .end-list{
     margin-right: 40px;
