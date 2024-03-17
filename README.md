@@ -32,7 +32,7 @@ ABHAR utilizes advanced AI algorithms to analyze and respond to various inputs f
 
 Ready to experience the future of home automation? Head over to our GitHub repository and explore ABHAR today!
 
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Explore%20ABHAR-green)]([https://github.com/100rabx23](https://epicpjm05.github.io/ABHAR/WEb/))
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Explore%20ABHAR-green)]([https://epicpjm05.github.io/ABHAR/WEb/}))
 
 ### Support
 
