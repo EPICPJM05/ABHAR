@@ -28,11 +28,17 @@ Welcome to ABHAR - your ultimate solution for home automation! ABHAR integrates 
 
 ABHAR utilizes advanced AI algorithms to analyze and respond to various inputs from your home environment. Whether it's detecting intruders, adjusting room temperatures, or managing your appliances, ABHAR does it all intelligently and efficiently.
 
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Explore%20ABHAR-green)]([https://epicpjm05.github.io/ABHAR/WEb/}))
+
 ### Get Started
 
 Ready to experience the future of home automation? Head over to our GitHub repository and explore ABHAR today!
 
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Explore%20ABHAR-green)]([https://epicpjm05.github.io/ABHAR/WEb/}))
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Explore%20ABHAR-green)](https://epicpjm05.github.io/ABHAR/WEb/)
+
+To dive right in and see what ABHAR can do for your home, visit our website: [ABHAR Website](https://epicpjm05.github.io/ABHAR/WEb/)
+
+
 
 ### Support
 
