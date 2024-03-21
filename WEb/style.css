@@ -7,22 +7,23 @@
 body{
     background-color: rgb(255, 255, 255);
 }
+
+.logo{
+    margin: 10px;
+}
+
 a{
     text-decoration: none !important;
-    font:inherit;
-    color: inherit;
-}
-li{
     font-family: sans-serif;
-    list-style: none;
     font-size: large;
-    padding: 15px 20px;
+    padding: 10px 20px;
     margin: 0px ;
 }
-.nav li:hover{
+.nav a:hover{
     background-color: rgb(255, 255, 255);
     color: black;
     transition: 0.5s;
+    border-radius: 7px;
 }
 
 .flex{
@@ -31,6 +32,9 @@ li{
     align-items: center;
 }
 
+nav li{
+    list-style: none;
+}
 
 .end-list{
     margin-right: 40px;
@@ -53,7 +57,7 @@ li{
 
 .right button:hover{
     background-color: rgb(158, 158, 158);
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .w3-container p,.w3-container h2 {
