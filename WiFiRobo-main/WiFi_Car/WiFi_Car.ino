@@ -89,27 +89,27 @@ const char* htmlHomePage PROGMEM = R"HTMLHOMEPAGE(
     
     <table id="mainTable" style="width:400px;margin:auto;table-layout:fixed" CELLSPACING=10>
       <tr>
-        <td style="background-color:white;box-shadow:none"></td><!-- <td ontouchstart='onTouchStartAndEnd("5")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#11017;</span></td> -->
-        <td ontouchstart='onTouchStartAndEnd("1")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#8679;</span></td>
-        <td style="background-color:white;box-shadow:none"></td><!-- <td ontouchstart='onTouchStartAndEnd("6")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#11016;</span></td> -->
+        <td style="background-color:white;box-shadow:none"></td><!-- <td onclick='onclickAndEnd("5")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#11017;</span></td> -->
+        <td onclick='onclickAndEnd("1")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#8679;</span></td>
+        <td style="background-color:white;box-shadow:none"></td><!-- <td onclick='onclickAndEnd("6")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#11016;</span></td> -->
       </tr>
       
       <tr>
-        <td ontouchstart='onTouchStartAndEnd("3")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#8678;</span></td>
+        <td onclick='onclickAndEnd("3")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#8678;</span></td>
         <td style="background-color:white;box-shadow:none"></td>   
-        <td ontouchstart='onTouchStartAndEnd("4")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#8680;</span></td>
+        <td onclick='onclickAndEnd("4")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#8680;</span></td>
       </tr>
       
       <tr>
-        <td style="background-color:white;box-shadow:none"></td><!-- <td ontouchstart='onTouchStartAndEnd("7")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#11019;</span></td> -->
-        <td ontouchstart='onTouchStartAndEnd("2")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#8681;</span></td>
-        <td style="background-color:white;box-shadow:none"></td><!-- <td ontouchstart='onTouchStartAndEnd("8")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#11018;</span></td> -->
+        <td style="background-color:white;box-shadow:none"></td><!-- <td onclick='onclickAndEnd("7")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#11019;</span></td> -->
+        <td onclick='onclickAndEnd("2")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#8681;</span></td>
+        <td style="background-color:white;box-shadow:none"></td><!-- <td onclick='onclickAndEnd("8")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#11018;</span></td> -->
       </tr>
     
       <tr>
-        <td ontouchstart='onTouchStartAndEnd("9")' ontouchend='onTouchStartAndEnd("0")'><span class="circularArrows" >&#8634;</span></td>
+        <td onclick='onclickAndEnd("9")' ontouchend='onclickAndEnd("0")'><span class="circularArrows" >&#8634;</span></td>
         <td style="background-color:white;box-shadow:none"></td>
-        <td ontouchstart='onTouchStartAndEnd("10")' ontouchend='onTouchStartAndEnd("0")'><span class="circularArrows" >&#8635;</span></td>
+        <td onclick='onclickAndEnd("10")' ontouchend='onclickAndEnd("0")'><span class="circularArrows" >&#8635;</span></td>
       </tr>
     </table>
 
@@ -125,7 +125,7 @@ const char* htmlHomePage PROGMEM = R"HTMLHOMEPAGE(
         websocket.onmessage = function(event){};
       }
 
-      function onTouchStartAndEnd(value) 
+      function onclickAndEnd(value) 
       {
         websocket.send(value);
       }
