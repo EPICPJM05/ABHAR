@@ -1,12 +1,13 @@
 # <p align="center">ABHAR</p>  
 
 <p align="center">
-  A solution that not only keeps your home safe but also respects your privacy, can evolve with the latest technologies, and fits well into the dynamic lifestyles of today's households....
+  A solution that not only keeps your home safe but also respects your privacy, can evolve with the latest technologies, and fits well into the dynamic lifestyles of today's households.
 </p>
 
 ---------------------------------------------------------------------
 
 ## AI-BASED HOME AUTOMATION ROBO
+
 
 <p align="center">
   <img src="https://i.ibb.co/GkBKBd1/home-automation-robo.jpg" alt="AI-Based Home Automation Robo">
