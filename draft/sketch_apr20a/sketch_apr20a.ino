@@ -12,18 +12,18 @@
 #define DOWN 2
 #define LEFT 3
 #define RIGHT 4
-// #define UP_LEFT 5
-// #define UP_RIGHT 6
-// #define DOWN_LEFT 7
-// #define DOWN_RIGHT 8
+#define UP_LEFT 5
+#define UP_RIGHT 6
+#define DOWN_LEFT 7
+#define DOWN_RIGHT 8
 #define TURN_LEFT 9
 #define TURN_RIGHT 10
 #define STOP 0
 
 #define FRONT_RIGHT_MOTOR 0
-// #define BACK_RIGHT_MOTOR 1
-#define FRONT_LEFT_MOTOR 1
-// #define BACK_LEFT_MOTOR 3
+#define BACK_RIGHT_MOTOR 1
+#define FRONT_LEFT_MOTOR 2
+#define BACK_LEFT_MOTOR 3
 
 #define FORWARD 1
 #define BACKWARD -1
@@ -36,12 +36,14 @@ struct MOTOR_PINS
 
 std::vector<MOTOR_PINS> motorPins = 
 {
-  {25, 33}, //FRONT_RIGHT_MOTOR
-  {27, 26}, //FRONT_LEFT_MOTOR  
+  {16, 17},  //FRONT_RIGHT_MOTOR
+  {18, 19},  //BACK_RIGHT_MOTOR
+  {27, 26},  //FRONT_LEFT_MOTOR
+  {25, 33},  //BACK_LEFT_MOTOR   
 };
 
-const char* ssid     = "Abhar-AP";
-const char* password = "abhar123";
+const char* ssid     = "MyWiFiCar";
+const char* password = "12345678";
 
 AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
@@ -84,32 +86,32 @@ const char* htmlHomePage PROGMEM = R"HTMLHOMEPAGE(
   </head>
   <body class="noselect" align="center" style="background-color:white">
      
-    <h1 style="color: teal;text-align:center;">Movement Controller</h1>
-    <h2 style="color: teal;text-align:center;">Control ABHAR with Wi-Fi</h2>
+    <h1 style="color: teal;text-align:center;">Hash Include Electronics</h1>
+    <h2 style="color: teal;text-align:center;">Wi-Fi &#128663; Control</h2>
     
     <table id="mainTable" style="width:400px;margin:auto;table-layout:fixed" CELLSPACING=10>
       <tr>
-        <td style="background-color:white;box-shadow:none"></td><!-- <td onclick='onclickAndEnd("5")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#11017;</span></td> -->
-        <td onclick='onclickAndEnd("1")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#8679;</span></td>
-        <td style="background-color:white;box-shadow:none"></td><!-- <td onclick='onclickAndEnd("6")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#11016;</span></td> -->
+        <td ontouchstart='onTouchStartAndEnd("5")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#11017;</span></td>
+        <td ontouchstart='onTouchStartAndEnd("1")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#8679;</span></td>
+        <td ontouchstart='onTouchStartAndEnd("6")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#11016;</span></td>
       </tr>
       
       <tr>
-        <td onclick='onclickAndEnd("3")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#8678;</span></td>
-        <td style="background-color:white;box-shadow:none"></td>   
-        <td onclick='onclickAndEnd("4")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#8680;</span></td>
+        <td ontouchstart='onTouchStartAndEnd("3")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#8678;</span></td>
+        <td></td>    
+        <td ontouchstart='onTouchStartAndEnd("4")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#8680;</span></td>
       </tr>
       
       <tr>
-        <td style="background-color:white;box-shadow:none"></td><!-- <td onclick='onclickAndEnd("7")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#11019;</span></td> -->
-        <td onclick='onclickAndEnd("2")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#8681;</span></td>
-        <td style="background-color:white;box-shadow:none"></td><!-- <td onclick='onclickAndEnd("8")' ontouchend='onclickAndEnd("0")'><span class="arrows" >&#11018;</span></td> -->
+        <td ontouchstart='onTouchStartAndEnd("7")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#11019;</span></td>
+        <td ontouchstart='onTouchStartAndEnd("2")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#8681;</span></td>
+        <td ontouchstart='onTouchStartAndEnd("8")' ontouchend='onTouchStartAndEnd("0")'><span class="arrows" >&#11018;</span></td>
       </tr>
     
       <tr>
-        <td onclick='onclickAndEnd("9")' ontouchend='onclickAndEnd("0")'><span class="circularArrows" >&#8634;</span></td>
+        <td ontouchstart='onTouchStartAndEnd("9")' ontouchend='onTouchStartAndEnd("0")'><span class="circularArrows" >&#8634;</span></td>
         <td style="background-color:white;box-shadow:none"></td>
-        <td onclick='onclickAndEnd("10")' ontouchend='onclickAndEnd("0")'><span class="circularArrows" >&#8635;</span></td>
+        <td ontouchstart='onTouchStartAndEnd("10")' ontouchend='onTouchStartAndEnd("0")'><span class="circularArrows" >&#8635;</span></td>
       </tr>
     </table>
 
@@ -125,7 +127,7 @@ const char* htmlHomePage PROGMEM = R"HTMLHOMEPAGE(
         websocket.onmessage = function(event){};
       }
 
-      function onclickAndEnd(value) 
+      function onTouchStartAndEnd(value) 
       {
         websocket.send(value);
       }
@@ -138,6 +140,7 @@ const char* htmlHomePage PROGMEM = R"HTMLHOMEPAGE(
     
   </body>
 </html> 
+
 )HTMLHOMEPAGE";
 
 
@@ -168,44 +171,86 @@ void processCarMovement(String inputValue)
 
     case UP:
       rotateMotor(FRONT_RIGHT_MOTOR, FORWARD);
-    //   rotateMotor(BACK_RIGHT_MOTOR, FORWARD);
+      rotateMotor(BACK_RIGHT_MOTOR, FORWARD);
       rotateMotor(FRONT_LEFT_MOTOR, FORWARD);
-    //   rotateMotor(BACK_LEFT_MOTOR, FORWARD);                  
+      rotateMotor(BACK_LEFT_MOTOR, FORWARD);                  
       break;
   
     case DOWN:
       rotateMotor(FRONT_RIGHT_MOTOR, BACKWARD);
-    //   rotateMotor(BACK_RIGHT_MOTOR, BACKWARD);
+      rotateMotor(BACK_RIGHT_MOTOR, BACKWARD);
       rotateMotor(FRONT_LEFT_MOTOR, BACKWARD);
-    //   rotateMotor(BACK_LEFT_MOTOR, BACKWARD);   
+      rotateMotor(BACK_LEFT_MOTOR, BACKWARD);   
       break;
   
     case LEFT:
       rotateMotor(FRONT_RIGHT_MOTOR, FORWARD);
-    //   rotateMotor(BACK_RIGHT_MOTOR, BACKWARD);
+      rotateMotor(BACK_RIGHT_MOTOR, BACKWARD);
       rotateMotor(FRONT_LEFT_MOTOR, BACKWARD);
-    // rotateMotor(BACK_LEFT_MOTOR, FORWARD);   
+      rotateMotor(BACK_LEFT_MOTOR, FORWARD);   
       break;
   
     case RIGHT:
       rotateMotor(FRONT_RIGHT_MOTOR, BACKWARD);
-    //   rotateMotor(BACK_RIGHT_MOTOR, FORWARD);
+      rotateMotor(BACK_RIGHT_MOTOR, FORWARD);
       rotateMotor(FRONT_LEFT_MOTOR, FORWARD);
-    //   rotateMotor(BACK_LEFT_MOTOR, BACKWARD);  
+      rotateMotor(BACK_LEFT_MOTOR, BACKWARD);  
+      break;
+  
+    case UP_LEFT:
+      rotateMotor(FRONT_RIGHT_MOTOR, FORWARD);
+      rotateMotor(BACK_RIGHT_MOTOR, STOP);
+      rotateMotor(FRONT_LEFT_MOTOR, STOP);
+      rotateMotor(BACK_LEFT_MOTOR, FORWARD);  
+      break;
+  
+    case UP_RIGHT:
+      rotateMotor(FRONT_RIGHT_MOTOR, STOP);
+      rotateMotor(BACK_RIGHT_MOTOR, FORWARD);
+      rotateMotor(FRONT_LEFT_MOTOR, FORWARD);
+      rotateMotor(BACK_LEFT_MOTOR, STOP);  
+      break;
+  
+    case DOWN_LEFT:
+      rotateMotor(FRONT_RIGHT_MOTOR, STOP);
+      rotateMotor(BACK_RIGHT_MOTOR, BACKWARD);
+      rotateMotor(FRONT_LEFT_MOTOR, BACKWARD);
+      rotateMotor(BACK_LEFT_MOTOR, STOP);   
+      break;
+  
+    case DOWN_RIGHT:
+      rotateMotor(FRONT_RIGHT_MOTOR, BACKWARD);
+      rotateMotor(BACK_RIGHT_MOTOR, STOP);
+      rotateMotor(FRONT_LEFT_MOTOR, STOP);
+      rotateMotor(BACK_LEFT_MOTOR, BACKWARD);   
+      break;
+  
+    case TURN_LEFT:
+      rotateMotor(FRONT_RIGHT_MOTOR, FORWARD);
+      rotateMotor(BACK_RIGHT_MOTOR, FORWARD);
+      rotateMotor(FRONT_LEFT_MOTOR, BACKWARD);
+      rotateMotor(BACK_LEFT_MOTOR, BACKWARD);  
+      break;
+  
+    case TURN_RIGHT:
+      rotateMotor(FRONT_RIGHT_MOTOR, BACKWARD);
+      rotateMotor(BACK_RIGHT_MOTOR, BACKWARD);
+      rotateMotor(FRONT_LEFT_MOTOR, FORWARD);
+      rotateMotor(BACK_LEFT_MOTOR, FORWARD);   
       break;
   
     case STOP:
       rotateMotor(FRONT_RIGHT_MOTOR, STOP);
-    //  rotateMotor(BACK_RIGHT_MOTOR, STOP);
+      rotateMotor(BACK_RIGHT_MOTOR, STOP);
       rotateMotor(FRONT_LEFT_MOTOR, STOP);
-    //  rotateMotor(BACK_LEFT_MOTOR, STOP);    
+      rotateMotor(BACK_LEFT_MOTOR, STOP);    
       break;
   
     default:
       rotateMotor(FRONT_RIGHT_MOTOR, STOP);
-    //  rotateMotor(BACK_RIGHT_MOTOR, STOP);
+      rotateMotor(BACK_RIGHT_MOTOR, STOP);
       rotateMotor(FRONT_LEFT_MOTOR, STOP);
-    //  rotateMotor(BACK_LEFT_MOTOR, STOP);    
+      rotateMotor(BACK_LEFT_MOTOR, STOP);    
       break;
   }
 }
@@ -266,17 +311,32 @@ void setUpPinModes()
   }
 }
 
-
 void setup(void) 
 {
   setUpPinModes();
   Serial.begin(115200);
 
-  WiFi.softAP(ssid, password);
-  IPAddress IP = WiFi.softAPIP();
-  Serial.print("AP IP address: ");
-  Serial.println(IP);
+  // Print WiFi configuration
+  Serial.println("Configuring WiFi...");
+  Serial.print("SSID: ");
+  Serial.println(ssid);
+  Serial.print("Password: ");
+  Serial.println(password);
 
+  // Connect to WiFi network
+  Serial.print("Connecting to WiFi");
+  WiFi.begin(ssid, password);
+  
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  
+  Serial.println("WiFi connected");
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
+
+  // Remaining setup code
   server.on("/", HTTP_GET, handleRoot);
   server.onNotFound(handleNotFound);
   
@@ -287,7 +347,9 @@ void setup(void)
   Serial.println("HTTP server started");
 }
 
-void loop() 
+void loop()
 {
   ws.cleanupClients(); 
 }
+
+
