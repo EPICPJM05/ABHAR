@@ -10,7 +10,7 @@
 
 
 <p align="center">
-  <img src="https://i.ibb.co/GkBKBd1/home-automation-robo.jpg" alt="AI-Based Home Automation Robo">
+  <img src="https://github.com/EPICPJM05/ABHAR/blob/main/draft/Screenshot%202024-04-13%20182931.png" alt="AI-Based Home Automation Robo">
 </p>
 
 ### Introduction
