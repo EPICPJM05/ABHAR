@@ -12,18 +12,13 @@
 #define DOWN 2
 #define LEFT 3
 #define RIGHT 4
-// #define UP_LEFT 5
-// #define UP_RIGHT 6
-// #define DOWN_LEFT 7
-// #define DOWN_RIGHT 8
+
 #define TURN_LEFT 9
 #define TURN_RIGHT 10
 #define STOP 0
 
 #define FRONT_RIGHT_MOTOR 0
-// #define BACK_RIGHT_MOTOR 1
 #define FRONT_LEFT_MOTOR 1
-// #define BACK_LEFT_MOTOR 3
 
 #define FORWARD 1
 #define BACKWARD -1
@@ -40,8 +35,8 @@ std::vector<MOTOR_PINS> motorPins =
   {27, 26}, //FRONT_LEFT_MOTOR  
 };
 
-const char* ssid     = "Abhar-AP";
-const char* password = "abhar123";
+const char* ssid     = "Vivo S1";
+const char* password = "pjm..595";
 
 AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
@@ -175,37 +170,27 @@ void processCarMovement(String inputValue)
   
     case DOWN:
       rotateMotor(FRONT_RIGHT_MOTOR, BACKWARD);
-    //   rotateMotor(BACK_RIGHT_MOTOR, BACKWARD);
-      rotateMotor(FRONT_LEFT_MOTOR, BACKWARD);
-    //   rotateMotor(BACK_LEFT_MOTOR, BACKWARD);   
+      rotateMotor(FRONT_LEFT_MOTOR, BACKWARD);   
       break;
   
     case LEFT:
       rotateMotor(FRONT_RIGHT_MOTOR, FORWARD);
-    //   rotateMotor(BACK_RIGHT_MOTOR, BACKWARD);
-      rotateMotor(FRONT_LEFT_MOTOR, BACKWARD);
-    // rotateMotor(BACK_LEFT_MOTOR, FORWARD);   
+      rotateMotor(FRONT_LEFT_MOTOR, BACKWARD); 
       break;
   
     case RIGHT:
       rotateMotor(FRONT_RIGHT_MOTOR, BACKWARD);
-    //   rotateMotor(BACK_RIGHT_MOTOR, FORWARD);
-      rotateMotor(FRONT_LEFT_MOTOR, FORWARD);
-    //   rotateMotor(BACK_LEFT_MOTOR, BACKWARD);  
+      rotateMotor(FRONT_LEFT_MOTOR, FORWARD); 
       break;
   
     case STOP:
       rotateMotor(FRONT_RIGHT_MOTOR, STOP);
-    //  rotateMotor(BACK_RIGHT_MOTOR, STOP);
-      rotateMotor(FRONT_LEFT_MOTOR, STOP);
-    //  rotateMotor(BACK_LEFT_MOTOR, STOP);    
+      rotateMotor(FRONT_LEFT_MOTOR, STOP);    
       break;
   
     default:
       rotateMotor(FRONT_RIGHT_MOTOR, STOP);
-    //  rotateMotor(BACK_RIGHT_MOTOR, STOP);
-      rotateMotor(FRONT_LEFT_MOTOR, STOP);
-    //  rotateMotor(BACK_LEFT_MOTOR, STOP);    
+      rotateMotor(FRONT_LEFT_MOTOR, STOP);   
       break;
   }
 }
