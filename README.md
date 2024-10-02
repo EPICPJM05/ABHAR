@@ -39,10 +39,12 @@ Ready to experience the future of home automation? Head over to our GitHub repos
 
 To dive right in and see what ABHAR can do for your home, visit our website: [ABHAR Website](https://epicpjm05.github.io/ABHAR/WEb/)
 
-Reference Documents: <a href="https://www.researchgate.net/publication/355347091_Face_Mask_Detection_Using_CNN">Face Detection Using CNN</a> <br>
-                     <a href="https://home.iitk.ac.in/~blohani/LiDARSchool2008/Downloads/Lab_Manual_LiDAR_School_Book2.pdf">LiDAR Manual IIT Kanpur</a><br>
-                     <a href="https://r2.ieee.org/columbus-ssccas/wp-content/uploads/sites/49/LiDAR_Technologies-and-Systems_McManamon.pdf">IEEE About LiDAR Technology</a> <br>
-
+Reference Documents: 
+<ul>
+<li><a href="https://www.researchgate.net/publication/355347091_Face_Mask_Detection_Using_CNN">Face Detection Using CNN</a></li>
+<li><a href="https://home.iitk.ac.in/~blohani/LiDARSchool2008/Downloads/Lab_Manual_LiDAR_School_Book2.pdf">LiDAR Manual IIT Kanpur</a></li>
+<li><a href="https://r2.ieee.org/columbus-ssccas/wp-content/uploads/sites/49/LiDAR_Technologies-and-Systems_McManamon.pdf">IEEE About LiDAR Technology</a></li>
+</ul><br>
 ### Support
 
 Have questions or need assistance? Don't hesitate to reach out to our friendly support team. We're here to help you make the most out of ABHAR.
